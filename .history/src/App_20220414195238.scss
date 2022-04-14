@@ -1,0 +1,9 @@
+.tabAnimation-enter {
+    opacity: 0;
+  }
+  // 시작점
+  .tabAnimation-enter-active {
+    opacity: 1;
+    transition: all 500ms;
+  }
+  //  동작

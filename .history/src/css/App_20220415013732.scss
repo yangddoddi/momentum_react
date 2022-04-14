@@ -1,0 +1,19 @@
+.pageShiftAnimation-enter {
+    opacity: 0;
+  }
+
+.pageShiftAnimation-enter-active {
+    opacity: 1;
+    transition: 300ms;
+  }
+
+.pageShiftAnimation-exit {
+    opacity: 0.1;
+  }
+
+
+.pageShiftAnimation-exit-active {
+    opacity: 0;
+    transition: 300ms;
+  }
+

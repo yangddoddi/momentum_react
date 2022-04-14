@@ -1,0 +1,12 @@
+.mainPage {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+    .mainItems__watch {
+        font-size: 42px;
+    }
+}

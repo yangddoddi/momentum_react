@@ -1,0 +1,28 @@
+.mainPage {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+
+    .mainItems__watch {
+        font-size: 52px;
+    }
+
+    .mainItems__greeting{
+        font-size: 52px;
+        margin-top: 0px;
+    }
+
+    .mainItems__toDoFocus__question {
+        font-size: 24px;
+    }
+
+    .mainItems__toDoFocus__input {
+        border: none;
+        border-bottom: solid black 2px;
+        width: 100%;
+    }
+}

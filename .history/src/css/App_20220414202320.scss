@@ -1,0 +1,16 @@
+.tabAnimation-enter {
+    opacity: 0;
+  }
+  // 시작점
+
+.tabAnimation-enter-active {
+    opacity: 1;
+    transition: all 1000ms;
+  }
+  //  동작
+
+.mainPage {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
