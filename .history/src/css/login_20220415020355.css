@@ -1,0 +1,16 @@
+.loginPage {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.loginPage p {
+  font-size: 32px;
+}
+.loginPage input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px black solid;
+  outline: none;
+}/*# sourceMappingURL=login_20220415020355.css.map */

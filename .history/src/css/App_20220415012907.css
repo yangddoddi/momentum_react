@@ -1,0 +1,8 @@
+.pageShiftAnimation-enter {
+  opacity: 0;
+}
+
+.pageShiftAnimation-enter-active {
+  opacity: 1;
+  transition: all 1000ms;
+}/*# sourceMappingURL=App_20220415012907.css.map */

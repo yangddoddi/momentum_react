@@ -1,0 +1,10 @@
+$backgroundImage: (
+  '../img/background1.jpeg','../img/background2.jpeg','../img/background3.jpeg','../img/background4.jpeg','../img/background5.jpeg'
+);
+
+$randomImage: nth($backgroundImage, random(length($backgroundImg)));
+
+.randomImage {
+  background-image: url(../img/background1.jpeg);
+  background-size: cover;
+}

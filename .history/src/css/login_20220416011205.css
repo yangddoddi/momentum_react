@@ -1,0 +1,22 @@
+.loginPage {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.loginPage p {
+  font-size: 52px;
+  font-weight: bold;
+  color: white;
+}
+.loginPage input {
+  font-size: 52px;
+  font-weight: bold;
+  width: 100%;
+  border: none;
+  border-bottom: 2px white solid;
+  outline: none;
+  text-align: center;
+  background-color: transparent;
+}/*# sourceMappingURL=login_20220416011205.css.map */

@@ -1,0 +1,24 @@
+.mainPage {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  text-align: center;
+}
+.mainPage .mainItems__watch {
+  font-size: 42px;
+  margin-bottom: 0px;
+}
+.mainPage .mainItems__greeting {
+  font-size: 42px;
+}
+.mainPage .mainItems__toDoFocus__question {
+  font-size: 32px;
+}
+.mainPage .mainItems__toDoFocus__input {
+  border: none;
+  border-bottom: solid black 2px;
+  width: 100%;
+}/*# sourceMappingURL=main_20220415020913.css.map */

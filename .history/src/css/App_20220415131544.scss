@@ -1,0 +1,35 @@
+$backgroundImg: (
+  '../img/background1.jpeg','../img/background2.jpeg','../img/background3.jpeg','../img/background4.jpeg','../img/background5.jpeg'
+);
+
+$randomImg: nth($backgroundImg, random(length($backgroundImg)))
+
+.App {
+  bac
+}
+
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
+    transition: all 1000ms ease-out;
+  }
+
+.fade-enter-active {
+    opacity: 1;
+
+  }
+
+.fade-exit {
+    opacity: 1;
+    transition: all 1000ms ease-out;
+  }
+
+
+.fade-exit-active {
+    opacity: 0;
+
+  }
+
+.transitionGroup {
+  position: relative;
+}

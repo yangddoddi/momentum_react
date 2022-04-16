@@ -1,0 +1,15 @@
+.pageShiftAnimation-enter {
+  opacity: 0;
+}
+
+.pageShiftAnimation-enter-active {
+  opacity: 1;
+}
+
+.pageShiftAnimation-exit {
+  opacity: 0.5;
+}
+
+.pageShiftAnimation-exit-active {
+  opacity: 0;
+}/*# sourceMappingURL=App_20220415013537.css.map */

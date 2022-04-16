@@ -1,0 +1,22 @@
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+  transition: all 1000ms ease-out;
+}
+
+.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-exit {
+  opacity: 1;
+  transition: all 1000ms ease-out;
+}
+
+.fade-exit-active {
+  opacity: 0;
+}
+
+.transitionGroup {
+  position: relative;
+}/*# sourceMappingURL=App_20220415025654.css.map */

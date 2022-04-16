@@ -1,0 +1,8 @@
+.loginPage {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+}/*# sourceMappingURL=login_20220415015905.css.map */

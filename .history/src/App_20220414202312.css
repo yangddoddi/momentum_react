@@ -1,0 +1,13 @@
+.tabAnimation-enter {
+  opacity: 0;
+}
+
+.tabAnimation-enter-active {
+  opacity: 1;
+  transition: all 1000ms;
+}
+
+.mainPage {
+  display: flex;
+  position: absolute;
+}/*# sourceMappingURL=App_20220414202312.css.map */

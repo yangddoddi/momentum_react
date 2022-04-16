@@ -1,0 +1,13 @@
+.loginPage {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.loginPage .loginPage__form {
+  transform: translate(-50%, -50%);
+}
+.loginPage p {
+  font-size: 32px;
+}/*# sourceMappingURL=login_20220415020036.css.map */
