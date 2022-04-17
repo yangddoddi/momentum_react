@@ -22,7 +22,7 @@ const Container = styled(motion.div)`
 
   input {
     font-size: ${(props) => props.theme.fontSize.subtitle};
-    font-weight: 600;
+    font-weight: bold;
     width: 100%;
     border: none;
     border-bottom: 2px white solid;

@@ -16,13 +16,13 @@ const Container = styled(motion.div)`
   font-size: ${(props) => props.theme.fontSize.title};
 
   p {
-    font-weight: 600;
+    font-weight: bold;
     margin-bottom: ${(props) => props.theme.space.base};
   }
 
   input {
     font-size: ${(props) => props.theme.fontSize.subtitle};
-    font-weight: 600;
+    font-weight: semi-bold;
     width: 100%;
     border: none;
     border-bottom: 2px white solid;

@@ -9,15 +9,11 @@ const loginInputReducer = function (state, action) {
   }
 };
 
-let clockState = { hour: "00", minute: "00" };
-
-const clockReducer = function (state = clockState, action) {
+const clockReducer = function (state, action) {
   switch (action.type) {
     case "RENEW":
-      return (state = action.payload.time);
-    default:
-      return state;
+      return (state = action.payload);
   }
 };
 
-export { loginInputReducer, clockReducer };
+export { loginInputReducer };

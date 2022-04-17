@@ -16,13 +16,13 @@ const Container = styled(motion.div)`
   font-size: ${(props) => props.theme.fontSize.title};
 
   p {
-    font-weight: 600;
+    font-weight: bold;
     margin-bottom: ${(props) => props.theme.space.base};
   }
 
   input {
     font-size: ${(props) => props.theme.fontSize.subtitle};
-    font-weight: 600;
+    font-weight: bold;
     width: 100%;
     border: none;
     border-bottom: 2px white solid;
@@ -45,10 +45,12 @@ const Focus = styled.div`
   transform: translateX(-50%);
 `;
 
-function MainPage() {
+function MainPage(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const clockState = useSelector((state) => state.clockReducer);
+  const clockState = useSelector((state) => {
+    state.clockReducer;
+  });
 
   const userID = localStorage.getItem("userId");
 
@@ -71,18 +73,18 @@ function MainPage() {
 
 function MainItems(props) {
   const date = new Date();
-  const time = { hour: date.getDate(), minute: date.getMinutes() };
+  const time = { hour: date.getDate, minute: date.getMinutes };
   const RenewClockHandler = () => {
-    props.dispatch({ type: "RENEW", payload: { time } });
+    props.dispatch({ type: "RENEW", payload: time });
   };
   setTimeout(RenewClockHandler, 1000);
 
+  console.log(props.clockState);
+
   return (
     <section>
-      <Clock>
-        {props.clockState.hour}:{props.clockState.minute}
-      </Clock>
-      <p> Hello, {props.userId} </p>
+      <Clock> 00:00 </Clock>
+      <p> Hello, {userID} </p>
       <Focus>
         <p>What is your main focus for today?</p>
         <input />

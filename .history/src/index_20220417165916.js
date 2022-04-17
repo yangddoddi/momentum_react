@@ -4,12 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import { loginInputReducer, clockReducer } from "./redux/reducer";
+import { loginInputReducer } from "./redux/reducer";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
 import { HashRouter } from "react-router-dom";
 
-const store = createStore(combineReducers({ loginInputReducer, clockReducer }));
+const store = createStore(combineReducers({ loginInputReducer }));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

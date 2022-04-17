@@ -16,13 +16,13 @@ const Container = styled(motion.div)`
   font-size: ${(props) => props.theme.fontSize.title};
 
   p {
-    font-weight: 600;
+    font-weight: bold;
     margin-bottom: ${(props) => props.theme.space.base};
   }
 
   input {
     font-size: ${(props) => props.theme.fontSize.subtitle};
-    font-weight: 600;
+    font-weight: bold;
     width: 100%;
     border: none;
     border-bottom: 2px white solid;
@@ -75,12 +75,15 @@ function MainItems(props) {
   const RenewClockHandler = () => {
     props.dispatch({ type: "RENEW", payload: { time } });
   };
-  setTimeout(RenewClockHandler, 1000);
+  setTimeout(RenewClockHandler, 10000);
+
+  console.log(props.clockState.hour);
 
   return (
     <section>
       <Clock>
-        {props.clockState.hour}:{props.clockState.minute}
+        {" "}
+        {props.clockState.hour} : {props.clockState.minute}{" "}
       </Clock>
       <p> Hello, {props.userId} </p>
       <Focus>

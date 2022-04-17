@@ -9,6 +9,10 @@ const backgroundArr = [img1, img2, img3, img4, img5];
 const randomIndex = Math.floor(Math.random() * backgroundArr.length);
 const backgroundImg = backgroundArr[randomIndex];
 
+console.log(backgroundArr);
+console.log(backgroundArr[0]);
+console.log(backgroundImg);
+
 const GlobalStyle = createGlobalStyle`
 * {
     box-sizing: border-box; 

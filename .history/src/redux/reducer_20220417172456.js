@@ -14,7 +14,10 @@ let clockState = { hour: "00", minute: "00" };
 const clockReducer = function (state = clockState, action) {
   switch (action.type) {
     case "RENEW":
-      return (state = action.payload.time);
+      return ( {state.hour = action.payload.time.hour,
+        state.minute = action.payload.time.minute}
+
+      );
     default:
       return state;
   }
