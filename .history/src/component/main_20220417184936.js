@@ -15,7 +15,6 @@ const Container = styled(motion.div)`
   text-align: center;
   color: white;
   font-size: ${(props) => props.theme.fontSize.title};
-  overflow: hidden;
 
   p {
     font-weight: 600;
@@ -67,11 +66,6 @@ const QuoteContainer = styled.div`
 
   p {
     margin-bottom: ${(props) => props.theme.space.xsmall};
-
-    &:nth-child(2) {
-      font-size: ${(props) => props.theme.fontSize.xsmall};
-      opacity: 0.8;
-    }
   }
 
   &:hover {
@@ -79,9 +73,9 @@ const QuoteContainer = styled.div`
   }
 `;
 
-// const subQuote = styled.p`
-//   font-size: ${(props) => props.theme.fontSize.small};
-// `;
+const subQuote = styled.p`
+  font-size: ${(props) => props.theme.fontSize.small};
+`;
 
 function MainPage() {
   const dispatch = useDispatch();

@@ -28,7 +28,7 @@ const quoteReducer = function (state = quoteState, action) {
   switch (action.type) {
     case "MOUSE_OVER":
       return (state = true);
-    case "MOUSE_LEAVE":
+    case "MOUSE_END":
       return (state = false);
     default:
       return state;

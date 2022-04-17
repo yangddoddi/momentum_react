@@ -70,7 +70,6 @@ const QuoteContainer = styled.div`
 
     &:nth-child(2) {
       font-size: ${(props) => props.theme.fontSize.xsmall};
-      opacity: 0.8;
     }
   }
 

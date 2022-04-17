@@ -22,16 +22,12 @@ const clockReducer = function (state = clockState, action) {
   }
 };
 
-let quoteState = false;
-
-const quoteReducer = function (state = quoteState, action) {
+const quoteReducer = function (state, action) {
   switch (action.type) {
     case "MOUSE_OVER":
       return (state = true);
-    case "MOUSE_LEAVE":
+    case "MOUSE_END":
       return (state = false);
-    default:
-      return state;
   }
 };
 

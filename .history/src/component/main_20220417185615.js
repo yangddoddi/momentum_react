@@ -70,7 +70,6 @@ const QuoteContainer = styled.div`
 
     &:nth-child(2) {
       font-size: ${(props) => props.theme.fontSize.xsmall};
-      opacity: 0.8;
     }
   }
 
@@ -157,9 +156,9 @@ function BottomItems(props) {
         onMouseLeave={mouseLeaveHandler}
       >
         <p>{randomQuote.quoteENG}</p>
-        <p>
+        <subQuote>
           {randomQuote.quoteKR} {randomQuote.author}
-        </p>
+        </subQuote>
       </QuoteContainer>
       <div>투두</div>
     </BottomContainer>

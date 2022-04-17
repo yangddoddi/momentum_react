@@ -15,7 +15,6 @@ const Container = styled(motion.div)`
   text-align: center;
   color: white;
   font-size: ${(props) => props.theme.fontSize.title};
-  overflow: hidden;
 
   p {
     font-weight: 600;
@@ -60,28 +59,10 @@ const BottomContainer = styled.div`
 
 const QuoteContainer = styled.div`
   position: absolute;
-  width: 100%;
   left: 50%;
   transform: translateX(-50%);
   transition: 300ms ease-in;
-
-  p {
-    margin-bottom: ${(props) => props.theme.space.xsmall};
-
-    &:nth-child(2) {
-      font-size: ${(props) => props.theme.fontSize.xsmall};
-      opacity: 0.8;
-    }
-  }
-
-  &:hover {
-    transform: translate(-50%, -30px);
-  }
 `;
-
-// const subQuote = styled.p`
-//   font-size: ${(props) => props.theme.fontSize.small};
-// `;
 
 function MainPage() {
   const dispatch = useDispatch();
@@ -105,7 +86,7 @@ function MainPage() {
     >
       <TopItems />
       <MainItems userId={userID} dispatch={dispatch} clockState={clockState} />
-      <BottomItems hoverState={hoverState} dispatch={dispatch} />
+      <BottomItems hoverState={hoverState} />
     </Container>
   );
 }
@@ -142,24 +123,15 @@ function TopItems(props) {
 
 function BottomItems(props) {
   const mouseOverHandler = () => {
-    props.dispatch({ type: "MOUSE_OVER" });
-  };
-
-  const mouseLeaveHandler = () => {
-    props.dispatch({ type: "MOUSE_LEAVE" });
+    console.log("aa");
   };
 
   return (
     <BottomContainer>
       <div>설정</div>
-      <QuoteContainer
-        onMouseOver={mouseOverHandler}
-        onMouseLeave={mouseLeaveHandler}
-      >
-        <p>{randomQuote.quoteENG}</p>
-        <p>
-          {randomQuote.quoteKR} {randomQuote.author}
-        </p>
+      <QuoteContainer>
+        <p onMouseOver={mouseOverHandler}>{randomQuote.quoteENG}</p>
+        {hoverState ? <p> aa </p> : null}
       </QuoteContainer>
       <div>투두</div>
     </BottomContainer>
