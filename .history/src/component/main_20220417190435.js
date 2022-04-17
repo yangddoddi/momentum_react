@@ -116,13 +116,13 @@ function MainItems(props) {
   const RenewClockHandler = () => {
     props.dispatch({ type: "RENEW", payload: { time } });
   };
-  setInterval(RenewClockHandler, 1000);
+  setInterval(  RenewClockHandler, 1000;
+    );
 
   return (
     <section>
       <Clock>
-        {String(props.clockState.hour).padStart(2, "0")}:
-        {String(props.clockState.minute).padStart(2, "0")}
+        {props.clockState.hour}:{props.clockState.minute}
       </Clock>
       <p> Hello, {props.userId} </p>
       <Focus>
