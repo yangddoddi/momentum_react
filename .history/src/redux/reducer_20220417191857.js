@@ -22,4 +22,4 @@ const clockReducer = function (state = clockState, action) {
   }
 };
 
-export { loginInputReducer, clockReducer };
+export { loginInputReducer, clockReducer, quoteReducer };

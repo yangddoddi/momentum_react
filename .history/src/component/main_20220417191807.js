@@ -90,10 +90,8 @@ function MainPage() {
   const hoverState = useSelector((state) => state.quoteReducer);
 
   const userID = localStorage.getItem("userId");
-  const date = new Date();
-  const time = { hour: date.getHours(), minute: date.getMinutes() };
   const RenewClockHandler = () => {
-    dispatch({ type: "RENEW", payload: { time } });
+    props.dispatch({ type: "RENEW", payload: { time } });
   };
 
   useEffect(() => {
@@ -101,7 +99,7 @@ function MainPage() {
       navigate("../");
     }
 
-    const clock = setInterval(RenewClockHandler, 1000);
+    clock = setInterval(RenewClockHandler, 1000);
     return () => {
       clearInterval(clock);
     };
@@ -121,6 +119,16 @@ function MainPage() {
 }
 
 function MainItems(props) {
+  const date = new Date();
+  const time = { hour: date.getDate(), minute: date.getMinutes() };
+  const RenewClockHandler = () => {
+    props.dispatch({ type: "RENEW", payload: { time } });
+  };
+  setTimeout(RenewClockHandler, 1000);
+  console.log(time);
+  console.log(props.clockState);
+  console.log(String(props.clockState.minute).padStart(2, "0"));
+
   return (
     <section>
       <Clock>
@@ -145,10 +153,21 @@ function TopItems(props) {
 }
 
 function BottomItems(props) {
+  const mouseOverHandler = () => {
+    props.dispatch({ type: "MOUSE_OVER" });
+  };
+
+  const mouseLeaveHandler = () => {
+    props.dispatch({ type: "MOUSE_LEAVE" });
+  };
+
   return (
     <BottomContainer>
       <div>설정</div>
-      <QuoteContainer>
+      <QuoteContainer
+        onMouseOver={mouseOverHandler}
+        onMouseLeave={mouseLeaveHandler}
+      >
         <p>{randomQuote.quoteENG}</p>
         <p>
           {randomQuote.quoteKR} {randomQuote.author}

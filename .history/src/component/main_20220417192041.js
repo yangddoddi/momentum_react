@@ -91,7 +91,7 @@ function MainPage() {
 
   const userID = localStorage.getItem("userId");
   const date = new Date();
-  const time = { hour: date.getHours(), minute: date.getMinutes() };
+  const time = { hour: date.getDate(), minute: date.getMinutes() };
   const RenewClockHandler = () => {
     dispatch({ type: "RENEW", payload: { time } });
   };
@@ -121,6 +121,13 @@ function MainPage() {
 }
 
 function MainItems(props) {
+  // const date = new Date();
+  // const time = { hour: date.getDate(), minute: date.getMinutes() };
+  // const RenewClockHandler = () => {
+  //   props.dispatch({ type: "RENEW", payload: { time } });
+  // };
+  // setTimeout(RenewClockHandler, 1000);
+
   return (
     <section>
       <Clock>

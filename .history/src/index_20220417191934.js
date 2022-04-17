@@ -9,7 +9,9 @@ import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
 import { HashRouter } from "react-router-dom";
 
-const store = createStore(combineReducers({ loginInputReducer, clockReducer }));
+const store = createStore(
+  combineReducers({ loginInputReducer, clockReducer, quoteReducer })
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

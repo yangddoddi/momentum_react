@@ -91,7 +91,7 @@ function MainPage() {
 
   const userID = localStorage.getItem("userId");
   const date = new Date();
-  const time = { hour: date.getHours(), minute: date.getMinutes() };
+  const time = { hour: date.getDate(), minute: date.getMinutes() };
   const RenewClockHandler = () => {
     dispatch({ type: "RENEW", payload: { time } });
   };
@@ -101,7 +101,7 @@ function MainPage() {
       navigate("../");
     }
 
-    const clock = setInterval(RenewClockHandler, 1000);
+    clock = setInterval(RenewClockHandler, 1000);
     return () => {
       clearInterval(clock);
     };
@@ -121,6 +121,13 @@ function MainPage() {
 }
 
 function MainItems(props) {
+  // const date = new Date();
+  // const time = { hour: date.getDate(), minute: date.getMinutes() };
+  // const RenewClockHandler = () => {
+  //   props.dispatch({ type: "RENEW", payload: { time } });
+  // };
+  // setTimeout(RenewClockHandler, 1000);
+
   return (
     <section>
       <Clock>
@@ -148,7 +155,10 @@ function BottomItems(props) {
   return (
     <BottomContainer>
       <div>설정</div>
-      <QuoteContainer>
+      <QuoteContainer
+        onMouseOver={mouseOverHandler}
+        onMouseLeave={mouseLeaveHandler}
+      >
         <p>{randomQuote.quoteENG}</p>
         <p>
           {randomQuote.quoteKR} {randomQuote.author}

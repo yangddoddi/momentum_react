@@ -91,7 +91,8 @@ function MainPage() {
 
   const userID = localStorage.getItem("userId");
   const date = new Date();
-  const time = { hour: date.getHours(), minute: date.getMinutes() };
+  const time = { hour: date.getDate(), minute: date.getMinutes() };
+  console.log(data.getDate());
   const RenewClockHandler = () => {
     dispatch({ type: "RENEW", payload: { time } });
   };
