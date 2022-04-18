@@ -81,7 +81,7 @@ const QuoteContainer = styled.div`
     }
     p:nth-child(2) {
       transform: translate(-50%, 50%);
-      opacity: 0.8;
+      opacity: 1;
     }
   }
 
@@ -249,7 +249,7 @@ function Weather() {
           <p>{city}</p>
         </WeatherDiv>
       ) : (
-        <CostumSpin tip={"Finding your location.."} />
+        <CostumSpin tip={"loading.."} />
       )}
     </div>
   );

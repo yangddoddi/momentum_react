@@ -44,12 +44,10 @@ const Container = styled(motion.div)`
 
 const Clock = styled.div`
   font-size: ${(props) => props.theme.fontSize.clock};
-  height: ${(props) => props.theme.etc.clockHeight};
 `;
 
 const Focus = styled.div`
   position: absolute;
-  width: ${(props) => props.theme.etc.focusWidth};
   margin-top: ${(props) => props.theme.space.xxlarge};
   font-size: ${(props) => props.theme.fontSize.subtitle};
   left: 50%;
@@ -74,59 +72,26 @@ const QuoteContainer = styled.div`
   width: 100%;
   left: 50%;
   transform: translateX(-50%);
+  transition: 300ms ease-in;
 
-  &:hover {
-    p:nth-child(1) {
-      transform: translate(-50%, -50%);
-    }
-    p:nth-child(2) {
-      transform: translate(-50%, 50%);
+  p {
+    margin-bottom: ${(props) => props.theme.space.xsmall};
+
+    &:nth-child(2) {
+      font-size: ${(props) => props.theme.fontSize.xsmall};
       opacity: 0.8;
     }
   }
 
-  p:nth-child(1) {
-    margin-bottom: ${(props) => props.theme.space.xsmall};
-    position: absolute;
-    width: 100%;
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: 500ms ease-in;
+  &:hover {
+    transform: translate(-50%, -30px);
   }
-
-    p:nth-child(2) {
-      position: absolute;
-      width: 100%;
-      top: 0px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: ${(props) => props.theme.fontSize.xsmall};
-      opacity: 0;
-      transition: 500ms ease-in;
-    }
-  }
-`;
-
-const CostumSpin = styled(Spin)`
-  color: white;
 `;
 
 const WeatherDiv = styled.div`
-  user-select: none;
-
-  img {
-    width: 40px;
-  }
-
-  span {
-    font-size ${(props) => props.theme.fontSize.large}
-  }
-
-  p {
-    font-size: ${(props) => props.theme.fontSize.xsmall};
-    font-weight: 300;
-  }
+  display: flex;
+  flex-direction: column;
+  background-color: green;
 `;
 
 function MainPage() {
@@ -192,6 +157,7 @@ function TopItems(props) {
   return (
     <TopContainer>
       <div>검색</div>
+      <div>top items</div>
       <Weather />
     </TopContainer>
   );
@@ -217,6 +183,7 @@ function Weather() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState("");
   const [temp, setTemp] = useState("");
+  const [failed, setFailed] = useState("");
 
   useEffect(() => {
     if (error) {
@@ -241,17 +208,17 @@ function Weather() {
     }
   }, [location]);
   return (
-    <div>
+    <WeatherDiv>
       {!city == false ? (
-        <WeatherDiv>
+        <div>
           <img src={`http://openweathermap.org/img/wn/${weather}.png`}></img>
           <span>{temp}</span>
           <p>{city}</p>
-        </WeatherDiv>
+        </div>
       ) : (
-        <CostumSpin tip={"Finding your location.."} />
+        <Spin tip={"loading.."} />
       )}
-    </div>
+    </WeatherDiv>
   );
 }
 

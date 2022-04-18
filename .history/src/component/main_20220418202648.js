@@ -249,7 +249,7 @@ function Weather() {
           <p>{city}</p>
         </WeatherDiv>
       ) : (
-        <CostumSpin tip={"Finding your location.."} />
+        <CostumSpin tip={"loading.."} />
       )}
     </div>
   );

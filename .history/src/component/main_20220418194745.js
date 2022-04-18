@@ -44,12 +44,10 @@ const Container = styled(motion.div)`
 
 const Clock = styled.div`
   font-size: ${(props) => props.theme.fontSize.clock};
-  height: ${(props) => props.theme.etc.clockHeight};
 `;
 
 const Focus = styled.div`
   position: absolute;
-  width: ${(props) => props.theme.etc.focusWidth};
   margin-top: ${(props) => props.theme.space.xxlarge};
   font-size: ${(props) => props.theme.fontSize.subtitle};
   left: 50%;
@@ -74,15 +72,13 @@ const QuoteContainer = styled.div`
   width: 100%;
   left: 50%;
   transform: translateX(-50%);
+  transition: 300ms ease-in;
 
   &:hover {
-    p:nth-child(1) {
-      transform: translate(-50%, -50%);
-    }
     p:nth-child(2) {
-      transform: translate(-50%, 50%);
-      opacity: 0.8;
-    }
+        top: 15px;
+        opacity: 1;
+      }
   }
 
   p:nth-child(1) {
@@ -91,21 +87,19 @@ const QuoteContainer = styled.div`
     width: 100%;
     top: 0px;
     left: 50%;
-    transform: translateX(-50%);
-    transition: 500ms ease-in;
-  }
+    transform: translateX(-50%);}
 
-    p:nth-child(2) {
+  p:nth-child(2) {
       position: absolute;
-      width: 100%;
       top: 0px;
       left: 50%;
       transform: translateX(-50%);
       font-size: ${(props) => props.theme.fontSize.xsmall};
       opacity: 0;
-      transition: 500ms ease-in;
+      transition: 300ms ease-in;
     }
   }
+
 `;
 
 const CostumSpin = styled(Spin)`
@@ -113,8 +107,6 @@ const CostumSpin = styled(Spin)`
 `;
 
 const WeatherDiv = styled.div`
-  user-select: none;
-
   img {
     width: 40px;
   }
@@ -249,7 +241,7 @@ function Weather() {
           <p>{city}</p>
         </WeatherDiv>
       ) : (
-        <CostumSpin tip={"Finding your location.."} />
+        <CostumSpin tip={"loading.."} />
       )}
     </div>
   );

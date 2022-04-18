@@ -9,7 +9,7 @@ const fontSize = {
   xxlarge: calcRem(24),
   subtitle: calcRem(30),
   title: calcRem(58),
-  clock: calcRem(110),
+  clock: calcRem(140),
 };
 
 const space = {
@@ -25,11 +25,6 @@ const color = {
   white: "#FFFFFF",
 };
 
-const etc = {
-  clockHeight: calcRem(120),
-  focusWidth: calcRem(500),
-};
-
-const theme = { fontSize, space, color, etc };
+const theme = { fontSize, space, color };
 
 export default theme;

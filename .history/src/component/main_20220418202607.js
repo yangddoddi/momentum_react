@@ -49,7 +49,7 @@ const Clock = styled.div`
 
 const Focus = styled.div`
   position: absolute;
-  width: ${(props) => props.theme.etc.focusWidth};
+  width: ${(props) => props.theme.etc.focusWidth}
   margin-top: ${(props) => props.theme.space.xxlarge};
   font-size: ${(props) => props.theme.fontSize.subtitle};
   left: 50%;
@@ -81,7 +81,7 @@ const QuoteContainer = styled.div`
     }
     p:nth-child(2) {
       transform: translate(-50%, 50%);
-      opacity: 0.8;
+      opacity: 1;
     }
   }
 
@@ -249,7 +249,7 @@ function Weather() {
           <p>{city}</p>
         </WeatherDiv>
       ) : (
-        <CostumSpin tip={"Finding your location.."} />
+        <CostumSpin tip={"loading.."} />
       )}
     </div>
   );

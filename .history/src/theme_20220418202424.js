@@ -26,8 +26,7 @@ const color = {
 };
 
 const etc = {
-  clockHeight: calcRem(120),
-  focusWidth: calcRem(500),
+  clockHeight: calcRem(100),
 };
 
 const theme = { fontSize, space, color, etc };

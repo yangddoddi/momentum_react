@@ -42,14 +42,16 @@ const Container = styled(motion.div)`
   }
 `;
 
+const MainItemsContainer = styled.div`
+  display: flex;
+`;
+
 const Clock = styled.div`
   font-size: ${(props) => props.theme.fontSize.clock};
-  height: ${(props) => props.theme.etc.clockHeight};
 `;
 
 const Focus = styled.div`
   position: absolute;
-  width: ${(props) => props.theme.etc.focusWidth};
   margin-top: ${(props) => props.theme.space.xxlarge};
   font-size: ${(props) => props.theme.fontSize.subtitle};
   left: 50%;
@@ -81,7 +83,7 @@ const QuoteContainer = styled.div`
     }
     p:nth-child(2) {
       transform: translate(-50%, 50%);
-      opacity: 0.8;
+      opacity: 1;
     }
   }
 
@@ -174,7 +176,7 @@ function MainItems(props) {
   });
 
   return (
-    <section>
+    <MainItemsContainer>
       <Clock>
         {String(clockState.hour).padStart(2, "0")}:
         {String(clockState.minute).padStart(2, "0")}
@@ -184,7 +186,7 @@ function MainItems(props) {
         <p>What is your main focus for today?</p>
         <input />
       </Focus>
-    </section>
+    </MainItemsContainer>
   );
 }
 
@@ -249,7 +251,7 @@ function Weather() {
           <p>{city}</p>
         </WeatherDiv>
       ) : (
-        <CostumSpin tip={"Finding your location.."} />
+        <CostumSpin tip={"loading.."} />
       )}
     </div>
   );

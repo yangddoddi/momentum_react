@@ -27,7 +27,7 @@ const color = {
 
 const etc = {
   clockHeight: calcRem(120),
-  focusWidth: calcRem(500),
+  mainInputWidth: calcRem(500),
 };
 
 const theme = { fontSize, space, color, etc };
