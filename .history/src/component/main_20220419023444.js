@@ -136,13 +136,14 @@ function MainItems(props) {
 }
 
 function TopItems() {
-  const [searchInput, setSearchInput] = useState("");
+  const href = useRef();
 
-  const searchSubmitHandler = () => {
-    window.open(`https://www.google.com/search?q=${searchInput}`, "_blank");
+  const searchSubmitHandler = (e) => {
+    `https://www.google.com/search?q=${searchInput}`;
   };
+
   const inputChangeHandler = (e) => {
-    setSearchInput(e.target.value);
+    setSearchInput(e.value);
   };
 
   return (

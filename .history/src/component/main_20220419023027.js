@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { useHref, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SearchOutlined, SettingOutlined } from "@ant-design/icons";
 
 import "antd/dist/antd.css";
@@ -138,11 +138,12 @@ function MainItems(props) {
 function TopItems() {
   const [searchInput, setSearchInput] = useState("");
 
-  const searchSubmitHandler = () => {
-    window.open(`https://www.google.com/search?q=${searchInput}`, "_blank");
+  const searchSubmitHandler = (e) => {
+    history.push(`https://www.google.com/search?q=${searchInput}`);
   };
+
   const inputChangeHandler = (e) => {
-    setSearchInput(e.target.value);
+    setSearchInput(e.value);
   };
 
   return (

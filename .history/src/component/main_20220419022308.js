@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { useHref, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SearchOutlined, SettingOutlined } from "@ant-design/icons";
 
 import "antd/dist/antd.css";
@@ -22,7 +22,8 @@ const Container = styled(motion.div)`
   color: white;
   font-size: ${(props) => props.theme.fontSize.title};
   overflow: hidden;
-  padding: ${(props) => props.theme.space.base};
+  padding: ${(props) => props.theme.space.xxlarge},
+    ${(props) => props.theme.space.base};
 
   p {
     font-weight: 600;
@@ -136,20 +137,11 @@ function MainItems(props) {
 }
 
 function TopItems() {
-  const [searchInput, setSearchInput] = useState("");
-
-  const searchSubmitHandler = () => {
-    window.open(`https://www.google.com/search?q=${searchInput}`, "_blank");
-  };
-  const inputChangeHandler = (e) => {
-    setSearchInput(e.target.value);
-  };
-
   return (
     <TopContainer>
-      <Searchbar onSubmit={searchSubmitHandler}>
+      <Searchbar>
         <SearchOutlined />
-        <input onChange={inputChangeHandler}></input>
+        <input></input>
       </Searchbar>
       <Weather />
     </TopContainer>
@@ -161,7 +153,7 @@ function BottomItems() {
     <BottomContainer>
       <SettingOutlined />
       <Quote />
-      <div>TODO</div>
+      <div>투두</div>
     </BottomContainer>
   );
 }

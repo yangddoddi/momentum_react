@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { useHref, useNavigate } from "react-router-dom";
-import { SearchOutlined, SettingOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
+import { Input } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 
 import "antd/dist/antd.css";
 
@@ -77,21 +78,17 @@ const Searchbar = styled.form`
     position: absolute;
     padding-left: ${(props) => props.theme.space.xxxlarge};
     top: 10px;
-    width: 250px;
+    width: 200px;
     text-align: start;
     font-weight: 400;
     border-bottom: none;
-    opacity: 0.2;
-    transition: 100ms;
+    transition: 300ms;
 
     &:hover {
       border-bottom: 1px solid white;
+      opacity: 0.5;
     }
-
-    &:focus {
-      opacity: 1;
-      border-bottom: 1px solid white;
-    }
+  }
   }
 `;
 
@@ -136,20 +133,11 @@ function MainItems(props) {
 }
 
 function TopItems() {
-  const [searchInput, setSearchInput] = useState("");
-
-  const searchSubmitHandler = () => {
-    window.open(`https://www.google.com/search?q=${searchInput}`, "_blank");
-  };
-  const inputChangeHandler = (e) => {
-    setSearchInput(e.target.value);
-  };
-
   return (
     <TopContainer>
-      <Searchbar onSubmit={searchSubmitHandler}>
+      <Searchbar>
         <SearchOutlined />
-        <input onChange={inputChangeHandler}></input>
+        <input></input>
       </Searchbar>
       <Weather />
     </TopContainer>
@@ -159,9 +147,9 @@ function TopItems() {
 function BottomItems() {
   return (
     <BottomContainer>
-      <SettingOutlined />
+      <div>설정</div>
       <Quote />
-      <div>TODO</div>
+      <div>투두</div>
     </BottomContainer>
   );
 }

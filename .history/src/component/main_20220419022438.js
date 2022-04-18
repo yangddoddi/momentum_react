@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { useHref, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SearchOutlined, SettingOutlined } from "@ant-design/icons";
 
 import "antd/dist/antd.css";
@@ -136,20 +136,11 @@ function MainItems(props) {
 }
 
 function TopItems() {
-  const [searchInput, setSearchInput] = useState("");
-
-  const searchSubmitHandler = () => {
-    window.open(`https://www.google.com/search?q=${searchInput}`, "_blank");
-  };
-  const inputChangeHandler = (e) => {
-    setSearchInput(e.target.value);
-  };
-
   return (
     <TopContainer>
-      <Searchbar onSubmit={searchSubmitHandler}>
+      <Searchbar>
         <SearchOutlined />
-        <input onChange={inputChangeHandler}></input>
+        <input></input>
       </Searchbar>
       <Weather />
     </TopContainer>
@@ -161,7 +152,7 @@ function BottomItems() {
     <BottomContainer>
       <SettingOutlined />
       <Quote />
-      <div>TODO</div>
+      <div>ToDo</div>
     </BottomContainer>
   );
 }

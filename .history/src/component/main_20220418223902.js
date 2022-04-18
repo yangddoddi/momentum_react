@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { useHref, useNavigate } from "react-router-dom";
-import { SearchOutlined, SettingOutlined } from "@ant-design/icons";
-
+import { useNavigate } from "react-router-dom";
+import { Input } from "antd";
 import "antd/dist/antd.css";
 
 import styled from "styled-components";
@@ -64,37 +63,6 @@ const BottomContainer = styled.div`
   font-size: ${(props) => props.theme.fontSize.base};
 `;
 
-const Searchbar = styled.form`
-  position: relative;
-
-  span {
-    position: absolute;
-    top: 15px;
-  }
-
-  input {
-    font-size: ${(props) => props.theme.fontSize.base};
-    position: absolute;
-    padding-left: ${(props) => props.theme.space.xxxlarge};
-    top: 10px;
-    width: 250px;
-    text-align: start;
-    font-weight: 400;
-    border-bottom: none;
-    opacity: 0.2;
-    transition: 100ms;
-
-    &:hover {
-      border-bottom: 1px solid white;
-    }
-
-    &:focus {
-      opacity: 1;
-      border-bottom: 1px solid white;
-    }
-  }
-`;
-
 function MainPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -136,21 +104,9 @@ function MainItems(props) {
 }
 
 function TopItems() {
-  const [searchInput, setSearchInput] = useState("");
-
-  const searchSubmitHandler = () => {
-    window.open(`https://www.google.com/search?q=${searchInput}`, "_blank");
-  };
-  const inputChangeHandler = (e) => {
-    setSearchInput(e.target.value);
-  };
-
   return (
     <TopContainer>
-      <Searchbar onSubmit={searchSubmitHandler}>
-        <SearchOutlined />
-        <input onChange={inputChangeHandler}></input>
-      </Searchbar>
+      <Input placeholder="default size" prefix={<UserOutlined />} />
       <Weather />
     </TopContainer>
   );
@@ -159,9 +115,9 @@ function TopItems() {
 function BottomItems() {
   return (
     <BottomContainer>
-      <SettingOutlined />
+      <div>설정</div>
       <Quote />
-      <div>TODO</div>
+      <div>투두</div>
     </BottomContainer>
   );
 }

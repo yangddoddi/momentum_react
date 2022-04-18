@@ -19,7 +19,7 @@ const space = {
   large: calcRem(16),
   xlarge: calcRem(18),
   xxlarge: calcRem(20),
-  xxxlarge: calcRem(22),
+  xxxlarge: calcRem(20),
 };
 
 const color = {
