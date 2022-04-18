@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Spin } from "antd";
+import "antd/dist/antd.css";
 
 import styled from "styled-components";
-import Quote from "./qutoes.js";
-import Weather from "./weather.js";
-import Clock from "./clock.js";
+import randomQuote from "../items/qutoes.js";
 
 const Container = styled(motion.div)`
   position: relative;
@@ -39,6 +39,11 @@ const Container = styled(motion.div)`
   }
 `;
 
+const Clock = styled.div`
+  font-size: ${(props) => props.theme.fontSize.clock};
+  height: ${(props) => props.theme.etc.clockHeight};
+`;
+
 const Focus = styled.div`
   position: absolute;
   width: ${(props) => props.theme.etc.focusWidth};
@@ -59,6 +64,66 @@ const BottomContainer = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: ${(props) => props.theme.fontSize.base};
+`;
+
+const QuoteContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &:hover {
+    p:nth-child(1) {
+      transform: translate(-50%, -50%);
+    }
+    p:nth-child(2) {
+      transform: translate(-50%, 50%);
+      opacity: 0.8;
+    }
+  }
+
+  p:nth-child(1) {
+    margin-bottom: ${(props) => props.theme.space.xsmall};
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 500ms ease-in;
+  }
+
+    p:nth-child(2) {
+      position: absolute;
+      width: 100%;
+      top: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: ${(props) => props.theme.fontSize.xsmall};
+      opacity: 0;
+      transition: 500ms ease-in;
+    }
+  }
+`;
+
+const CostumSpin = styled(Spin)`
+  color: white;
+`;
+
+const WeatherDiv = styled.div`
+  user-select: none;
+
+  img {
+    width: 40px;
+  }
+
+  span {
+    font-size ${(props) => props.theme.fontSize.large}
+  }
+
+  p {
+    font-size: ${(props) => props.theme.fontSize.xsmall};
+    font-weight: 300;
+  }
 `;
 
 function MainPage() {
@@ -89,9 +154,28 @@ function MainPage() {
 }
 
 function MainItems(props) {
+  const date = new Date();
+  const time = { hour: date.getHours(), minute: date.getMinutes() };
+
+  const clockState = useSelector((state) => state.clockReducer);
+
+  const RenewClockHandler = () => {
+    props.dispatch({ type: "RENEW", payload: { time } });
+  };
+
+  useEffect(() => {
+    const clock = setInterval(RenewClockHandler, 1000);
+    return () => {
+      clearInterval(clock);
+    };
+  });
+
   return (
     <section>
-      <Clock />
+      <Clock>
+        {String(clockState.hour).padStart(2, "0")}:
+        {String(clockState.minute).padStart(2, "0")}
+      </Clock>
       <p> Hello, {props.userId} </p>
       <Focus>
         <p>What is your main focus for today?</p>
@@ -101,7 +185,7 @@ function MainItems(props) {
   );
 }
 
-function TopItems() {
+function TopItems(props) {
   return (
     <TopContainer>
       <div>검색</div>
@@ -110,11 +194,16 @@ function TopItems() {
   );
 }
 
-function BottomItems() {
+function BottomItems(props) {
   return (
     <BottomContainer>
       <div>설정</div>
-      <Quote />
+      <QuoteContainer>
+        <p>{randomQuote.quoteENG}</p>
+        <p>
+          {randomQuote.quoteKR} {randomQuote.author}
+        </p>
+      </QuoteContainer>
       <div>투두</div>
     </BottomContainer>
   );

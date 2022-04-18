@@ -39,6 +39,11 @@ const Container = styled(motion.div)`
   }
 `;
 
+const Clock = styled.div`
+  font-size: ${(props) => props.theme.fontSize.clock};
+  height: ${(props) => props.theme.etc.clockHeight};
+`;
+
 const Focus = styled.div`
   position: absolute;
   width: ${(props) => props.theme.etc.focusWidth};

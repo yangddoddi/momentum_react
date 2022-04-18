@@ -4,9 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
-import Quote from "./qutoes.js";
+import Quote from "../items/qutoes.js";
 import Weather from "./weather.js";
-import Clock from "./clock.js";
 
 const Container = styled(motion.div)`
   position: relative;
@@ -37,6 +36,11 @@ const Container = styled(motion.div)`
     background-color: transparent;
     color: white;
   }
+`;
+
+const Clock = styled.div`
+  font-size: ${(props) => props.theme.fontSize.clock};
+  height: ${(props) => props.theme.etc.clockHeight};
 `;
 
 const Focus = styled.div`
@@ -89,9 +93,28 @@ function MainPage() {
 }
 
 function MainItems(props) {
+  const date = new Date();
+  const time = { hour: date.getHours(), minute: date.getMinutes() };
+
+  const clockState = useSelector((state) => state.clockReducer);
+
+  const RenewClockHandler = () => {
+    props.dispatch({ type: "RENEW", payload: { time } });
+  };
+
+  useEffect(() => {
+    const clock = setInterval(RenewClockHandler, 1000);
+    return () => {
+      clearInterval(clock);
+    };
+  });
+
   return (
     <section>
-      <Clock />
+      <Clock>
+        {String(clockState.hour).padStart(2, "0")}:
+        {String(clockState.minute).padStart(2, "0")}
+      </Clock>
       <p> Hello, {props.userId} </p>
       <Focus>
         <p>What is your main focus for today?</p>
@@ -101,7 +124,7 @@ function MainItems(props) {
   );
 }
 
-function TopItems() {
+function TopItems(props) {
   return (
     <TopContainer>
       <div>검색</div>
@@ -110,7 +133,7 @@ function TopItems() {
   );
 }
 
-function BottomItems() {
+function BottomItems(props) {
   return (
     <BottomContainer>
       <div>설정</div>

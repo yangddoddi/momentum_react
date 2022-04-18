@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Quote from "./qutoes.js";
 import Weather from "./weather.js";
-import Clock from "./clock.js";
 
 const Container = styled(motion.div)`
   position: relative;
@@ -37,6 +36,11 @@ const Container = styled(motion.div)`
     background-color: transparent;
     color: white;
   }
+`;
+
+const Clock = styled.div`
+  font-size: ${(props) => props.theme.fontSize.clock};
+  height: ${(props) => props.theme.etc.clockHeight};
 `;
 
 const Focus = styled.div`

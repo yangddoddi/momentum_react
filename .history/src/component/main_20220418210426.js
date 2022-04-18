@@ -62,19 +62,6 @@ const BottomContainer = styled.div`
 `;
 
 function MainPage() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const userID = localStorage.getItem("userId");
-
-  const hoverState = useSelector((state) => state.quoteReducer);
-
-  useEffect(() => {
-    if (!localStorage.getItem("userId")) {
-      navigate("../");
-    }
-  });
-
   return (
     <Container
       initial={{ opacity: 0 }}
@@ -89,6 +76,19 @@ function MainPage() {
 }
 
 function MainItems(props) {
+  const date = new Date();
+  const time = { hour: date.getHours(), minute: date.getMinutes() };
+  const clockState = useSelector((state) => state.clockReducer);
+  const RenewClockHandler = () => {
+    props.dispatch({ type: "RENEW", payload: { time } });
+  };
+  useEffect(() => {
+    const clock = setInterval(RenewClockHandler, 1000);
+    return () => {
+      clearInterval(clock);
+    };
+  });
+
   return (
     <section>
       <Clock />
