@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 import useCurrentLocation from "../items/useCurrentPosition.js";
 import positionOptions from "../items/useCurrentOption.js";
 import axios from "axios";
-import { Spin } from "antd";
-import "antd/dist/antd.css";
 
 import styled from "styled-components";
 import randomQuote from "../items/qutoes.js";
@@ -176,7 +174,6 @@ function Weather() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState("");
   const [temp, setTemp] = useState("");
-  const [failed, setFailed] = useState("");
 
   useEffect(() => {
     if (error) {
@@ -187,30 +184,20 @@ function Weather() {
       const weather_KEY = "d3149a5e176fa3a047d393e01906bd6d";
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${weather_KEY}&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${weather_KEY}`
         )
         .then((response) => {
           console.log(response);
           setCity(response.data.name);
-          setWeather(response.data.weather[0].icon);
-          setTemp(`${response.data.main.temp}°C`);
-        })
-        .catch(() => {
-          alert("Local navigation failed.");
+          setWeather(response.data.weather[0].main);
+          setTemp(response.data.main.temp);
         });
     }
   }, [location]);
   return (
     <div>
-      {!city == false ? (
-        <div>
-          <img src={`http://openweathermap.org/img/wn/${weather}.png`}></img>
-          <span>{temp}</span>
-          <p>{city}</p>
-        </div>
-      ) : (
-        <Spin tip={"loading.."} />
-      )}
+      <span>{temp}</span>
+      <p>{city}</p>
     </div>
   );
 }

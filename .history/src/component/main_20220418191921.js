@@ -6,7 +6,6 @@ import useCurrentLocation from "../items/useCurrentPosition.js";
 import positionOptions from "../items/useCurrentOption.js";
 import axios from "axios";
 import { Spin } from "antd";
-import "antd/dist/antd.css";
 
 import styled from "styled-components";
 import randomQuote from "../items/qutoes.js";

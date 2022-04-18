@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 import useCurrentLocation from "../items/useCurrentPosition.js";
 import positionOptions from "../items/useCurrentOption.js";
 import axios from "axios";
-import { Spin } from "antd";
-import "antd/dist/antd.css";
 
 import styled from "styled-components";
 import randomQuote from "../items/qutoes.js";
@@ -93,13 +91,33 @@ function MainPage() {
 
   const userID = localStorage.getItem("userId");
 
+  const { location, error } = useCurrentLocation(positionOptions);
+
   const hoverState = useSelector((state) => state.quoteReducer);
+  console.log(location);
+  console.log(error);
 
   useEffect(() => {
     if (!localStorage.getItem("userId")) {
       navigate("../");
     }
   });
+
+  useEffect(() => {
+    if (error) {
+      return console.log("error");
+    }
+    if (location) {
+      const axios = require("axios");
+      const weather_KEY = "d3149a5e176fa3a047d393e01906bd6d";
+      console.log(weather_KEY);
+      axios
+        .get(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${weather_KEY}`
+        )
+        .then((response) => console.log(response.data));
+    }
+  }, [location]);
 
   return (
     <Container
@@ -171,48 +189,8 @@ function BottomItems(props) {
   );
 }
 
-function Weather() {
-  const { location, error } = useCurrentLocation(positionOptions);
-  const [city, setCity] = useState("");
-  const [weather, setWeather] = useState("");
-  const [temp, setTemp] = useState("");
-  const [failed, setFailed] = useState("");
-
-  useEffect(() => {
-    if (error) {
-      return console.log("error");
-    }
-    if (location) {
-      const axios = require("axios");
-      const weather_KEY = "d3149a5e176fa3a047d393e01906bd6d";
-      axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${weather_KEY}&units=metric`
-        )
-        .then((response) => {
-          console.log(response);
-          setCity(response.data.name);
-          setWeather(response.data.weather[0].icon);
-          setTemp(`${response.data.main.temp}°C`);
-        })
-        .catch(() => {
-          alert("Local navigation failed.");
-        });
-    }
-  }, [location]);
-  return (
-    <div>
-      {!city == false ? (
-        <div>
-          <img src={`http://openweathermap.org/img/wn/${weather}.png`}></img>
-          <span>{temp}</span>
-          <p>{city}</p>
-        </div>
-      ) : (
-        <Spin tip={"loading.."} />
-      )}
-    </div>
-  );
+function Weather(props) {
+  return <div>ss</div>;
 }
 
 export default MainPage;

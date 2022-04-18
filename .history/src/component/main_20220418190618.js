@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 import useCurrentLocation from "../items/useCurrentPosition.js";
 import positionOptions from "../items/useCurrentOption.js";
 import axios from "axios";
-import { Spin } from "antd";
-import "antd/dist/antd.css";
 
 import styled from "styled-components";
 import randomQuote from "../items/qutoes.js";
@@ -176,7 +174,6 @@ function Weather() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState("");
   const [temp, setTemp] = useState("");
-  const [failed, setFailed] = useState("");
 
   useEffect(() => {
     if (error) {
@@ -194,23 +191,17 @@ function Weather() {
           setCity(response.data.name);
           setWeather(response.data.weather[0].icon);
           setTemp(`${response.data.main.temp}°C`);
-        })
-        .catch(() => {
-          alert("Local navigation failed.");
         });
     }
   }, [location]);
   return (
     <div>
-      {!city == false ? (
-        <div>
-          <img src={`http://openweathermap.org/img/wn/${weather}.png`}></img>
-          <span>{temp}</span>
-          <p>{city}</p>
-        </div>
-      ) : (
-        <Spin tip={"loading.."} />
-      )}
+      {
+        city ? return (
+<img src={`http://openweathermap.org/img/wn/${weather}.png`}></img>
+<span>{temp}</span>
+<p>{city}</p>) : null
+      }
     </div>
   );
 }
