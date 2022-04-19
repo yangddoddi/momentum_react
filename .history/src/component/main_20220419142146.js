@@ -103,8 +103,7 @@ const Searchbar = styled.form`
 
 const SettingBtn = styled(SettingOutlined)`
   z-index: 100;
-  cursor: pointer;
-  svg {
+  cursor: pointer svg {
     &:hover {
       transform: rotate(90deg);
       transition: 500ms ease-in;

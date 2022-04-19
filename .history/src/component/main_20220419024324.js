@@ -63,7 +63,7 @@ const BottomContainer = styled.div`
   justify-content: space-between;
   font-size: ${(props) => props.theme.fontSize.base};
 
-  span:nth-child(2) {
+  span {
     &:hover {
       transform: translate(50px, 100px);
     }
@@ -97,17 +97,6 @@ const Searchbar = styled.form`
     &:focus {
       opacity: 1;
       border-bottom: 1px solid white;
-    }
-  }
-`;
-
-const SettingBtn = styled(SettingOutlined)`
-  z-index: 100;
-  cursor: pointer;
-  svg {
-    &:hover {
-      transform: rotate(90deg);
-      transition: 500ms ease-in;
     }
   }
 `;
@@ -176,7 +165,7 @@ function TopItems() {
 function BottomItems() {
   return (
     <BottomContainer>
-      <SettingBtn />
+      <SettingOutlined />
       <Quote />
       <div>TODO</div>
     </BottomContainer>

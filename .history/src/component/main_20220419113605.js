@@ -63,7 +63,7 @@ const BottomContainer = styled.div`
   justify-content: space-between;
   font-size: ${(props) => props.theme.fontSize.base};
 
-  span:nth-child(2) {
+  span {
     &:hover {
       transform: translate(50px, 100px);
     }
@@ -102,14 +102,7 @@ const Searchbar = styled.form`
 `;
 
 const SettingBtn = styled(SettingOutlined)`
-  z-index: 100;
-  cursor: pointer;
-  svg {
-    &:hover {
-      transform: rotate(90deg);
-      transition: 500ms ease-in;
-    }
-  }
+  opacity: 0;
 `;
 
 function MainPage() {
