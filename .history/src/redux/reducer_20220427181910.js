@@ -14,7 +14,7 @@ const loginInputReducer = function (state = "", action) {
     case "SUBMIT":
       return (state = "");
     default:
-      return state;
+      return (state = "");
   }
 };
 

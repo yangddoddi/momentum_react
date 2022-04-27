@@ -1,7 +1,7 @@
 import React from "react";
 
 import LoginPage from "./component/loginPage/loginpage.js";
-import MainPage from "./component/mainPage/main.js";
+import MainPage from "./component/main.js";
 
 import GlobalStyle from "./styledComponets/globalSetting";
 

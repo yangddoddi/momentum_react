@@ -7,19 +7,18 @@ const persistConfig = {
   storage,
 };
 
-const loginInputReducer = function (state = "", action) {
+const loginInputReducer = function (state, action) {
   switch (action.type) {
     case "LOGIN_ID":
       return (state = action.payload);
     case "SUBMIT":
       return (state = "");
     default:
-      return state;
+      return (state = "");
   }
 };
 
 const todoReducer = function (state = [], action) {
-  console.log(state);
   switch (action.type) {
     case "CREATE_TODO":
       return state.concat(action.payload);

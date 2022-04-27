@@ -1,6 +1,6 @@
 import { useState, useEffect, React } from "react";
-import useCurrentLocation from "../items/useCurrentPosition.js";
-import positionOptions from "../items/useCurrentOption.js";
+import useCurrentLocation from "../../../items/useCurrentPosition.js";
+import positionOptions from "../../../items/useCurrentOption.js";
 import { Spin } from "antd";
 import "antd/dist/antd.css";
 import styled from "styled-components";
@@ -44,7 +44,6 @@ function Weather() {
           `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${weather_KEY}&units=metric`
         )
         .then((response) => {
-          console.log(response);
           setCity(response.data.name);
           setWeather(response.data.weather[0].icon);
           setTemp(`${response.data.main.temp}°C`);

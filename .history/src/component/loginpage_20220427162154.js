@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -37,9 +37,7 @@ function LoginPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (localStorage.getItem("userId")) {
-      navigate("../main");
-    }
+    loginState && navigate("../main");
   }, []);
 
   return (
@@ -54,17 +52,20 @@ function LoginPage() {
 }
 
 function Login(props) {
+  const [id, setId] = useState("");
+
   const navigate = useNavigate();
 
   const loginInputHandler = (e) => {
-    console.log(e.target.value);
-    props.dispatch({ type: "TYPING", payload: e.target.value });
+    setId(e.target.value);
   };
 
   const loginSubmitHandler = (e) => {
     e.preventDefault();
-    localStorage.setItem("userId", props.loginState);
-    navigate("./main");
+    console.log(id);
+    props.dispatch({ type: "LOGIN_ID", payload: id });
+    // localStorage.setItem("userId", props.loginState);
+    navigate("../main");
   };
 
   return (

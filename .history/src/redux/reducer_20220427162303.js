@@ -14,12 +14,11 @@ const loginInputReducer = function (state = "", action) {
     case "SUBMIT":
       return (state = "");
     default:
-      return state;
+      return (state = "");
   }
 };
 
 const todoReducer = function (state = [], action) {
-  console.log(state);
   switch (action.type) {
     case "CREATE_TODO":
       return state.concat(action.payload);

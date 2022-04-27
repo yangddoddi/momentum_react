@@ -2,24 +2,30 @@ import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-const persistConfig = {
-  key: "LOCAL_ITEMS",
+const todoPersistConfig = {
+  key: "TODO",
   storage,
+  whiteList: ["TODO"],
 };
 
-const loginInputReducer = function (state = "", action) {
+const loginPersistConfig = {
+  key: "USER_ID",
+  storage,
+  whiteList: ["USER_ID"],
+};
+
+const loginInputReducer = function (state, action) {
   switch (action.type) {
     case "LOGIN_ID":
       return (state = action.payload);
     case "SUBMIT":
       return (state = "");
     default:
-      return state;
+      return (state = "");
   }
 };
 
 const todoReducer = function (state = [], action) {
-  console.log(state);
   switch (action.type) {
     case "CREATE_TODO":
       return state.concat(action.payload);
@@ -42,6 +48,9 @@ const todoReducer = function (state = [], action) {
   }
 };
 
-const rootReducer = combineReducers({ loginInputReducer, todoReducer });
+const rootReducer = combineReducers({
+  auth: persistReducer(loginPersistConfig, loginInputReducer),
+  other: todoReducer,
+});
 
-export default persistReducer(persistConfig, rootReducer);
+export default persistReducer(todoPersistConfig, rootReducer);
