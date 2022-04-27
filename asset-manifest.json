@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/momentum_react/static/css/main.e6c13ad2.css",
-    "main.js": "/momentum_react/static/js/main.5773839f.js",
+    "main.css": "/momentum_react/static/css/main.fbb07ecd.css",
+    "main.js": "/momentum_react/static/js/main.7b16bc19.js",
     "static/js/787.35fe2d44.chunk.js": "/momentum_react/static/js/787.35fe2d44.chunk.js",
     "static/media/background1.jpeg": "/momentum_react/static/media/background1.0de638352465a3125ada.jpeg",
     "static/media/background3.jpeg": "/momentum_react/static/media/background3.d578f4b0c5cfe83f30dd.jpeg",
@@ -10,12 +10,12 @@
     "static/media/background4.jpeg": "/momentum_react/static/media/background4.4eb2b1f589025f25a4fb.jpeg",
     "index.html": "/momentum_react/index.html",
     "static/media/antd.less": "/momentum_react/static/media/antd.7affb7a1925b6ab47ea6.less",
-    "main.e6c13ad2.css.map": "/momentum_react/static/css/main.e6c13ad2.css.map",
-    "main.5773839f.js.map": "/momentum_react/static/js/main.5773839f.js.map",
+    "main.fbb07ecd.css.map": "/momentum_react/static/css/main.fbb07ecd.css.map",
+    "main.7b16bc19.js.map": "/momentum_react/static/js/main.7b16bc19.js.map",
     "787.35fe2d44.chunk.js.map": "/momentum_react/static/js/787.35fe2d44.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.5773839f.js"
+    "static/css/main.fbb07ecd.css",
+    "static/js/main.7b16bc19.js"
   ]
 }
