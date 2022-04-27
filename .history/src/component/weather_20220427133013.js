@@ -2,7 +2,7 @@ import { useState, useEffect, React } from "react";
 import useCurrentLocation from "../items/useCurrentPosition.js";
 import positionOptions from "../items/useCurrentOption.js";
 import { Spin } from "antd";
-import "antd/dist/antd.css";
+import "antd/dist/antd.less";
 import styled from "styled-components";
 
 const CostumSpin = styled(Spin)`

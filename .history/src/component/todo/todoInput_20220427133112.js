@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
-function TodoInput() {
+function TodoInput(props) {
   const [input, setInput] = useState("");
   const newTodo = { id: uuidv4(), text: input, done: false, visible: true };
 

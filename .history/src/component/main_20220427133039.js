@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   SearchOutlined,
+  SettingOutlined,
   EllipsisOutlined,
   EditOutlined,
   CloseOutlined,
