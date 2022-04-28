@@ -28,7 +28,7 @@ const EmailForm = styled.form`
 
   input {
     font-size: 14px !important;
-    color: rgba(0, 0, 0, 1) !important;
+    color: rgba(0, 0, 0, 1);
   }
 
   input: nth-child(10) {
