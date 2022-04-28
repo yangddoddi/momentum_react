@@ -1,0 +1,73 @@
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import styled from "styled-components";
+
+const EmailForm = styled.form`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255);
+  width: 400px;
+  height: 400px;
+  font-size: 16px;
+  color: black;
+  text-align: left;
+  padding: ${(props) => props.theme.space.xxlarge};
+
+  input {
+    font-size: 14px;
+    text-align: left;
+    color: rgba(0, 0, 0);
+  }
+
+  input:last-child {
+    font-size: 100px;
+  }
+
+  textarea {
+    display: block;
+  }
+`;
+
+export const Email = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "portfolio_mail",
+        "template_9mkbttp",
+        form.current,
+        "bjNm3gg2xTIHYuEKQ"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
+  return (
+    <EmailForm ref={form} onSubmit={sendEmail}>
+      <label>Name</label>
+      <input type="text" name="user_name" placeholder="이름을 입력해주세요." />
+      <label>Phone</label>
+      <input type="tel" name="user_name" placeholder="연락처를 입력해주세요." />
+      <label>Email</label>
+      <input
+        type="email"
+        name="user_email"
+        placeholder="메일 주소를 입력해주세요"
+      />
+      <label>Message</label>
+      <textarea name="message" />
+      <input type="submit" value="Send" />
+    </EmailForm>
+  );
+};
