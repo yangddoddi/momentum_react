@@ -30,6 +30,7 @@ const TodoItemStyle = styled.li`
 `;
 
 function TodoItem(props) {
+  const todoCheckBox = useRef(null);
   const dispatch = useDispatch();
 
   const onChangeHandler = () => {
@@ -56,7 +57,11 @@ function TodoItem(props) {
     <TodoItemStyle
       style={props.visible ? { display: "flex" } : { display: "none" }}
     >
-      <Checkbox onChange={onChangeHandler} defaultChecked={props.done} />
+      <Checkbox
+        onChange={onChangeHandler}
+        ref={todoCheckBox}
+        defaultChecked={props.done}
+      />
       <p
         style={
           props.done

@@ -15,6 +15,8 @@ function TodoInput() {
     setInput(e.target.value);
   };
 
+  const [savedTodo, setSavedTodo] = useState("");
+
   const todoSubmitHandler = (e) => {
     e.preventDefault();
 
@@ -22,6 +24,7 @@ function TodoInput() {
       return false;
     }
 
+    setSavedTodo([...savedTodo, newTodo]);
     dispatch({
       type: "CREATE_TODO",
       payload: newTodo,

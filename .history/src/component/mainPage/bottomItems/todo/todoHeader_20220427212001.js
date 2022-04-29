@@ -57,14 +57,10 @@ function TodoHeader() {
   };
 
   const showAllTodo = () => {
-    setList("TODO ▾");
-    setDropBox(false);
     dispatch({ type: "SHOW_ALL" });
   };
 
   const showOnlyDone = () => {
-    setList("DONE ▾");
-    setDropBox(false);
     dispatch({ type: "SHOW_DONE" });
   };
 

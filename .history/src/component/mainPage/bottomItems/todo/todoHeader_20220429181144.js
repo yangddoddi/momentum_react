@@ -64,7 +64,6 @@ function TodoHeader() {
 
   const showOnlyDone = () => {
     setList("DONE ▾");
-    setDropBox(false);
     dispatch({ type: "SHOW_DONE" });
   };
 
