@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/momentum_react/static/css/main.fbb07ecd.css",
-    "main.js": "/momentum_react/static/js/main.cb1e1ca6.js",
+    "main.js": "/momentum_react/static/js/main.fa8f7e0a.js",
     "static/js/787.35fe2d44.chunk.js": "/momentum_react/static/js/787.35fe2d44.chunk.js",
     "static/media/background1.jpeg": "/momentum_react/static/media/background1.0de638352465a3125ada.jpeg",
     "static/media/background3.jpeg": "/momentum_react/static/media/background3.d578f4b0c5cfe83f30dd.jpeg",
@@ -11,11 +11,11 @@
     "index.html": "/momentum_react/index.html",
     "static/media/antd.less": "/momentum_react/static/media/antd.7affb7a1925b6ab47ea6.less",
     "main.fbb07ecd.css.map": "/momentum_react/static/css/main.fbb07ecd.css.map",
-    "main.cb1e1ca6.js.map": "/momentum_react/static/js/main.cb1e1ca6.js.map",
+    "main.fa8f7e0a.js.map": "/momentum_react/static/js/main.fa8f7e0a.js.map",
     "787.35fe2d44.chunk.js.map": "/momentum_react/static/js/787.35fe2d44.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fbb07ecd.css",
-    "static/js/main.cb1e1ca6.js"
+    "static/js/main.fa8f7e0a.js"
   ]
 }
