@@ -1,6 +1,8 @@
 # Moment clone coding(React)
 
-![github1](/assets/github1_nup11ax9j.gif)![github2](/assets/github2.gif)
+![github1](https://user-images.githubusercontent.com/97802103/165992620-af6ab6b4-93ca-424d-9aa3-876b6cb839c9.gif)
+![github2](https://user-images.githubusercontent.com/97802103/165992635-7c6012a5-1e35-4b08-8120-9c6d534be7dd.gif)
+
 
 ### 개발 목표
 
